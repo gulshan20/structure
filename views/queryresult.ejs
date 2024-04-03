@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Query Results</title>
+  <head>
+    <style>
+       
+
+        table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    </style>
+</head>
+<body>
+  <center><h1> Query Results</h1></center>
+<!-- <center><button><a href="pagination/?page=1">Paginate</a></button></center> -->
+<center>
+  <% if (page == 1) { %>
+    <button type="button" disabled><<</button>
+    <button type="button" disabled><</button>
+    <button type="button"><a href="?page=<%= page + 1 %>&sql=<%=sql%>">></a></button>
+    <button type="button"><a href="?page=<%= totalPages %> &sql=<%=sql%>">>></a></button>
+<% } else if (page == totalPages) { %>
+    <button type="button"><a href="?page=1&sql=<%=sql%>"><<</a></button>
+    <button type="button"><a href="?page=<%= page - 1 %> &sql=<%=sql%>"><</a></button>
+    <button type="button" disabled>></button>
+    <button type="button" disabled>>></button>
+<% } else { %>
+    <button type="button"><a href="?page=1&sql=<%=sql%>"><<</a></button>
+    <button type="button"><a href="?page=<%= page - 1 %> &sql=<%=sql%>"><</a></button>
+    <button type="button"><a href="?page=<%= page + 1 %> &sql=<%=sql%>">></a></button>
+    <button type="button"><a href="?page=<%= totalPages %> &sql=<%=sql%>">>></a></button>
+<% } %>
+
+</center>
+ 
+  
+  
+<center>
+  <table>
+    <thead>
+      <tr>
+        <% for (const field in data[0]) { %>
+          <th><%= field %></th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(row => { %>
+        <tr>
+          <% for (const field in row) { %>
+            <td><%= row[field] %></td>
+          <% } %>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</center>
+</body>
+</html>

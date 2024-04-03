@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State City combo box</title>
+    <style>
+        .container {
+            margin: 0px auto;
+        }
+        body{
+            background: azure;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <div class="d2">
+                <h1>Dynamic table</h1>
+                <h2>Gulshan Pandey</h2>
+                <h3>24DEV015</h3>
+                <br>
+            </div>
+            <div class="d2">
+                <label for="state">Select State:</label>
+                <select id="state" onchange="fetchCities()">
+                    <option value="">Select State</option>
+                    <option value="AP">Andhra Pradesh</option>
+                    <option value="KA">Karnataka</option>
+                    <option value="MH">Maharashtra</option>
+                    <option value="GJ">Gujarat</option>
+                    <option value="UP">Uttar Pradesh</option>
+                </select>
+        
+                <label for="city">Select City:</label>
+                <select id="city">
+                    <option value="">Select City</option>
+                </select>
+            </div>
+           
+        </div>
+    </center>
+   
+
+
+    <script>
+        async function fetchCities() {
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
+            const selectedState = stateSelect.value;
+
+            // Clear previous city options
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            if (selectedState) {
+                try {
+                    const response = await fetch(`/cities/${selectedState}`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch cities');
+                    }
+                    const data = await response.json();
+                    data.forEach(city => {
+                        const option = document.createElement('option');
+                        option.text = city;
+                        option.value = city;
+                        citySelect.add(option);
+                    });
+                } catch (error) {
+                    console.error('Error fetching cities:', error);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

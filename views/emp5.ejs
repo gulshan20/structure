@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>employee form</title>
+  </head>
+  <body>
+    <form action="fsmodulecrud" method="post">
+      <fieldset style="width: 35%">
+        <legend>Basic Details</legend>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" autofocus />
+        &nbsp;&nbsp;&nbsp;
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" /><BR />
+
+        <br />
+        <label for="desig">age</label>
+        <input type="number" id="age" name="age" />&nbsp;&nbsp;&nbsp;
+
+        <label for="add1">Address</label>
+        <input type="text" id="a1" name="add" /> <br /><br />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />&nbsp;&nbsp;&nbsp;
+
+        <label for="phone ">Phone no</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="9023-45-549"
+          maxlength="10"
+          required
+        />&nbsp;&nbsp;&nbsp;
+        <br />
+        <br />
+
+        <label for="city">City</label>
+        <input list="city" name="city" />
+        <datalist id="city">
+          <option value="surat"></option>
+          <option value="baroda"></option>
+          <option value="ahmedabad"></option>
+          <option value="rajkot"></option>
+          <option value="vapi"></option></datalist
+        ><br /><br />
+
+        <label for="state">State</label>
+        <select name="state" id="state">
+          <option value="Gujarat">Gujarat</option>
+          <option value="UP">Uttarpradesh</option>
+          <option value="MP">Madhyapradessh</option>
+          <option value="HP">HimachalPradesh</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Orrissa">Orrissa</option></select
+        ><br /><BR /><BR />
+
+        <label for="relationshipstatus">Relationshipstatus</label>
+        <select name="rel_status" id="rel_status">
+          <option value="single">Single</option>
+          <option value="divorced">Divorced</option>
+          <option value="married">Married</option>
+        </select>
+
+        <label for="dob">DateofBirth</label>
+        <input type="date" id="dob" name="dob" />
+        <br />
+        <br />
+
+        <label>Hobbies</label>&nbsp;
+        <input type="checkbox" id="read1" name="h1" value="cricket" />
+        <label>cricket</label>
+        &nbsp;&nbsp;
+
+        <input type="checkbox" id="write1" name="h1" value="volleyball" />
+        <label>volleyball</label>
+        &nbsp;&nbsp;
+
+        <input type="checkbox" id="speak1" name="h1" value="swimming" />
+        <label>swimming</label>
+
+        <center>
+          <BR />
+          <input type="submit" value="Submit" />&nbsp;&nbsp;
+          <input type="reset" value="Reset" />
+        </center>
+      </fieldset>
+    </form>
+  </body>
+</html>

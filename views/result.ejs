@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      th {
+        background-color: rgb(214, 221, 219);
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>Pandey Gulshan</h1></center>
+
+    <center>
+        <%if(pid==1){ %>
+        <button disabled><<</a></button>
+        <button disabled><</a></button>
+        <p><%=pid%></p>
+        <button><a  href="/result?page=<%=parseInt(pid)+1%>">
+            ></a></button>
+        <button><a href="/result?page=10">>></a></button>
+  
+        <%} else if(pid==10){ %>
+        <button><a href="/result?page=1"><<</a></button>
+        <button><a href="/result?page=<%= parseInt(pid)-1%>"><</a></button>
+        <p><%=pid%></p>
+        <button disabled>></button>
+        <button disabled>>></button>
+        <%} else{%>
+            <button><a href="/result?page=1"><<</a></button>
+            <button><a href="/result?page=<%= parseInt(pid)-1 %>"><</a></button>
+            <p><%=pid%></p>
+            <button><a  href="/result?page=<%=parseInt(pid)+1 %> ">
+                ></a></button>
+            <button><a href="/result?page=10">>></a></button>
+      
+  
+        <%} %>
+        <center>
+
+    <center>
+      <table>
+        <tr>
+          <th rowspan="2">StudentID</th>
+          <th rowspan="2">Firstname</th>
+          <th rowspan="2">Lastname</th>
+          <th colspan="2">Terminal</th>
+          <th colspan="2">Prelim</th>
+          <th colspan="2">Final</th>
+          <th rowspan="2">Total_MARKS</th>
+          <th rowspan="2">report</th>
+        </tr>
+        <tr>
+          <th colspan="1">Theory_marks</th>
+          <th colspan="1">Practical_marks</th>
+          <th colspan="1">Theory_marks</th>
+          <th colspan="1">Practical_marks</th>
+          <th colspan="1">Theory_marks</th>
+          <th colspan="1">Practical_marks</th>
+        </tr>
+        <% for(let i=0;i<result.length;i+=3){%>
+            <tr>
+                <% total = 0 %>
+                <td><%=result[i].studentid%></td>
+                <td><%=result[i].firstname%></td>
+                <td><%=result[i].lastname%></td>
+                <% for(let j=i;j<3+i;j++){%>
+                    <td><%=result[j].theory_mark%></td>
+                    <td><%=result[j].practical_mark%></td>
+                    <% total=total+result[j].theory_mark+result[j].practical_mark%>
+                    <%}%>
+
+                   
+                <td><%=total%></td>
+                <td><a href="/report?id=<%=result[i].studentid%> ">View_Details</a></td>
+                <!-- /attendance?page=20&month -->
+              
+              
+            </tr>
+            
+        <%}%>
+      </table>
+    </center>
+  </body>
+</html>

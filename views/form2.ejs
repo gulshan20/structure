@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMajax</title>
+    <style>
+        .form {
+          margin: 0px, auto;
+        }
+  
+        input {
+          margin-bottom: 16px;
+        }
+        .error-message {
+          color: red;
+          margin-top: 4px;
+        }
+        .tb1 {
+          background-color: seashell;
+          align-items: center;
+          align-content: center;
+          width: 45%;
+        }
+        .dt1 {
+          padding-bottom: 15px;
+  
+          font-size: 20px;
+          display: inline;
+          padding-right: 10px;
+          padding-top: 50px;
+          margin-bottom: 30px;
+        }
+        
+        .tb2 {
+          background-color: lightcyan;
+          padding-bottom: 30px;
+          width: 50%;
+        
+        }   
+        .fl{
+          display: flex;
+          flex-direction: row;
+        }
+        .dt2 {
+          padding-bottom: 15px;
+  
+          font-size: 20px;
+          display: inline;
+          padding-right: 10px;
+          padding-top: 50px;
+        }
+        .tp {
+          margin-top: 30px;
+        }
+        .tb3{
+            background-color: rgba(87, 88, 88, 0.11);
+           padding-bottom: 30px;
+            width: 57%;
+          }
+          .tb9{
+              display:flex;
+              gap: 10px;
+              width: 1200px;
+              height: 250px;
+              margin-top:20px;
+              padding-right: 15px;
+              
+          }
+          .tb4{
+              background-color: rgb(153, 148, 134);
+              
+            min-width: 400px;
+          }
+          .tb5{
+              background-color: rgba(188, 194, 160, 0.678);
+            min-width: 600px;
+          }
+  
+          .tb6{
+              background-color: rgba(118, 121, 108, 0.678);
+          min-width: 600px;
+          }
+          .tb7{
+              
+              background-color: rgba(118, 121, 108, 0.678);
+           min-width: 500px;
+          
+          }
+          .tb11{
+              display:flex;
+              gap: 10px;
+              width: 1200px;
+              margin-top:20px;
+            
+            
+          }
+          .button1{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            padding-left: 50px;
+            align-items: center;
+            gap: 50px;
+            
+        
+          }
+
+        input[type=button]{
+          background-color: #04AA6D;
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 42px;
+
+    }
+   
+    </style>
+</head>
+
+<body>
+  
+  <div class="bc1">
+        <form id="form">
+      <div  id="basicDetails" class="form-section active">
+        <div class="tb1" >
+          <h2>Basic details</h2>
+        
+           <div class="tp">
+             <div class="dt1">
+               <label for="fname">First Name</label>
+               <input type="text" id="fname" name="fname" />
+               <span class="error-message" id="fnameError"></span>
+             </div>
+             <div class="dt2">
+               <label for="lname">Last Name</label>
+               <input type="text" id="lname" name="lname" />
+               <span class="error-message" id="lnameError"></span>
+             </div>
+           </div>
+   
+           <div class="tp">
+             <div class="dt1">
+               <label for="desig">Designation</label>
+               <input type="text" id="desig" name="desig" />
+               <span class="error-message" id="desigError"></span>
+             </div>
+             <div class="dt2">
+               <label for="add1">Address</label>
+               <input type="text" id="add" name="add" />
+               <span class="error-message" id="add1Error"></span>
+             </div>
+           </div>
+           <div class="tp">
+             <div class="dt1">
+               <label for="email">Email</label>
+               <input type="varchar" id="email" name="email" />
+               <span class="error-message" id="emailError"></span>
+             </div>
+             <div class="dt2">
+               <label for="pincode">Pincode</label>
+               <input type="text" id="pin" name="pin" />
+               <span class="error-message" id="pinError"></span>
+             </div>
+           </div>
+           <div class="tp">
+             <div class="dt1">
+               <label for="phone ">Phone no</label>
+               <input type="varchar" id="phone" name="phone" />
+               <span class="error-message" id="PhoneError"></span>
+             </div>
+             <div class="dt2">
+               <label for="city">City</label>
+               <input type="text" id="city" name="city" />
+               <span class="error-message" id="cityError"></span>
+             </div>
+           </div>
+           <div class="tp">
+             <div class="dt1">
+               <label for="gender">Gender</label>
+   
+               <label>Male</label>
+               <input type="radio" id="male" name="gender" value="Male" />
+   
+               <label>Female</label>
+               <input type="radio" id="female" name="gender" value="Female" />
+               <span
+                 clas="error-message"
+                 id="genderError"
+                 style="color: red"
+               ></span>
+             </div>
+             &nbsp;&nbsp;&nbsp;
+             <div class="dt1" style="margin: right 30px">
+               <label for="state">State</label>
+               <select name="state" id="state">
+                 <option disabled selected value>-- select an option --</option>
+                 <option value="Gujarat">Gujarat</option>
+                 <option value="UP">Uttarpradesh</option>
+                 <option value="MP">Madhyapradessh</option>
+                 <option value="HP">HimachalPradesh</option>
+                 <option value="Delhi">Delhi</option>
+                 <option value="Punjab">Punjab</option>
+                 <option value="Orrissa">Orrissa</option>
+               </select>
+               <span
+                 clas="error-message"
+                 id="stateError"
+                 style="color: red"
+               ></span>
+             </div>
+             <div class="tp">
+               <div class="dt1">
+                 <label for="relationshipstatus">Relationshipstatus</label>
+                 <select name="rel_status" id="rel_status">
+                   <option disabled selected value>-- select an option --</option>
+                   <option value="single">Single</option>
+                   <option value="divorced">Divorced</option>
+                   <option value="married">Married</option>
+                 </select>
+                 <span
+                   clas="error-message"
+                   id="stateError"
+                   style="color: red"
+                 ></span>
+               </div>
+               &nbsp;&nbsp;
+               <div class="dt2">
+                 <label for="dob">DateofBirth</label>
+                 <input type="varchar" id="dob" name="dob" />
+                 <span
+                   clas="error-message"
+                   id="stateError"
+                   style="color: red"
+                 ></span>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+      <div  id="educationDetails" class="form-section">
+         <div class="tb2">
+            <h2>Education Details</h2>
+              
+               <div class="fl">
+                 <div class="dt">
+                   <legend>Ssc result</legend>
+   
+                   <label>Name of board</label>
+                   <input type="text" id="sboard" name="board" />
+                   <span class="error-message" id="ssceducationError"></span>
+                 </div>
+                 <div class="dt">
+                   <label>Passing year</label>
+                   <input type="text" id="spy" name="passingyear" />
+                   <p class="ssc_py"></p>
+                 </div>
+   
+                 <div class="dt">
+                   <label for="percentage">Percentage</label>
+                   <input type="text" id="sper" name="per" />
+                   <p class="ssc_per"></p>
+                 </div>
+               </div>
+               <br />
+               <div class="fl">
+                 <div class="dt">
+                   <legend>hsc result</legend>
+   
+                   <label>Name of board</label>
+                   <input type="text" id="hboard" name="board" />
+                   <span class="error-message" id="hsceducationError"></span>
+   
+                 </div>
+                 <div class="dt">
+                   <label>Passing year</label>
+                   <input type="text" id="hpy" name="passingyear" />
+                 </div>
+   
+                 <div class="dt">
+                   <label for="percentage">Percentage</label>
+                   <input type="text" id="hper" name="per" />
+                 </div>
+               </div>
+               <br />
+               <br />
+               <div class="fl">
+                 <div class="dt">
+                   <legend>bachelor degree</legend>
+   
+                   <label for="course">Course Name</label>
+                   <input type="text" id="bc" name="board" />
+                   <span class="error-message" id="bceducationError"></span>
+                 </div>
+                 <!-- <div class="dt">
+                             <label for="university">University</label>
+                             <input type="text" id="uni1" name="uni1">
+                         </div> -->
+                 <div class="dt">
+                   <label>Passing year</label>
+                   <input type="text" id="bpy" name="passingyear" />
+                 </div>
+                 <div class="dt">
+                   <label for="percentage">Percentage</label>
+                   <input type="text" id="bper" name="per" />
+                 </div>
+               </div>
+               <br />
+               <div class="fl">
+                 <div class="dt">
+                   <legend>Mater degeree</legend>
+   
+                   <label for="course">Course Name</label>
+                   <input type="text" id="mc" name="board" />
+                   <span class="error-message" id="mceducationError"></span>
+                 </div>
+                 <!-- <div class="dt">
+                             <label for="university">University</label>
+                             <input type="text" id="uni2" name="uni2">
+                         </div> -->
+                 <div class="dt">
+                   <label>Passing year</label>
+                   <input type="text" id="mpy" name="passingyear" />
+                 </div>
+                 <div class="dt">
+                   <label for="percentage">Percentage</label>
+                   <input type="text" id="mper" name="per" />
+                 </div>
+               </div>
+         
+              
+         </div>
+        </div>
+      <div id="workExperience"class="form-section">
+         <div class="tb3">
+           <h2>Work Experience</h2>
+            <div class="fl">
+                <div class="dt">
+                    <label>Company Name</label>
+                    <input type="text" id="comp1" name="comp">
+                    <span class="error-message" id="comp1Error"></span>
+                </div>
+                <div class="dt">
+                    <label>Designation</label>
+                <input type="text" id="desig1" name="designation">
+                </div>
+                <div class="dt">
+                    <label>from</label>
+                    <input type="text" id="frm_date1" name="frm_date">
+              
+                </div>
+                <div class="dt">
+                    <label>To</label>
+                <input type="text" id="to_date1" name="to">
+              
+                </div>
+               
+            </div>
+             <br>
+            <div class="fl">
+                <div class="dt">
+                    <label>Company Name</label>
+                    <input type="text" id="comp2" name="comp"/>
+                    <span class="error-message" id="comp2Error"></span>
+                </div>
+                <div class="dt">
+                    <label>Designation</label>
+                <input type="text" id="desig2" name="designation"/>
+                </div>
+                <div class="dt">
+                    <label>from</label>
+                    <input type="text" id="frm_date2" name="frm_date">
+              
+                </div>
+                <div class="dt">
+                    <label>To</label>
+                <input type="text" id="to_date2" name="to">
+              
+                </div>
+                <br>
+               
+            </div>
+             <div class="fl">
+                    <div class="dt">
+                        <label>Company Name</label>
+                        <input type="text" id="comp3" name="comp"/>
+                        <span class="error-message" id="comp3Error"></span>
+                    </div>
+                    <div class="dt">
+                        <label>Designation</label>
+                    <input type="text" id="desig3" name="designation">
+                    </div>
+                    <div class="dt">
+                        <label>from</label>
+                        <input type="text" id="frm_date3" name="frm_date">
+                  
+                    </div>
+                    <div class="dt">
+                        <label>To</label>
+                    <input type="text" id="to_date3" name="to">
+                  
+                    </div>
+              </div>
+            
+         
+          </div>
+        </div>
+           
+            
+        <div id="lang&tech" class="form-section">
+         <div class="tb9">
+           
+           <div class="tb4">
+               
+               <h2>language known</h2>
+                <div class="fl">
+                   <div class="dt">
+                       <input type="checkbox" id="hindi" name="language" value="hindi">
+                       <label>Hindi</label>
+                   </div>
+                   <div class="dt">
+                       <input type="checkbox" id="read1" name="hindi_know" value="read">
+                       <label>read</label>
+                   </div>
+                   <div class="dt">
+                       <input type="checkbox" id="write1" name="hindi_know" value="write">
+                       <label>write</label>
+                   </div>
+                   <div class="dt">
+                       <input type="checkbox" id="speak1" name="hindi_know" value="speak">
+                      <label>speak</label>
+                   </div>
+               </div>
+         <br>
+              <div class="fl">
+                <div class="dt">
+                <input type="checkbox" id="gujarati" name="language" value="gujarati">
+                <label>Gujarati</label>
+              </div>
+              <div class="dt">
+               <input type="checkbox" id="read2" name="gujarati_know" value="read">
+               <label>read</label>
+              </div>
+        <div class="dt">
+           <input type="checkbox" id="write2" name="gujarati_know" value="write">
+           <label>write</label>
+        </div>
+       <div class="dt">
+           <input type="checkbox" id="speak2" name="gujarati_know" value="speak">
+          <label>speak</label>
+       </div>
+       </div>
+       <br>
+       <div class="fl">
+       <div class="dt">
+           <input type="checkbox" id="english" name="language" value="english">
+           <label>English</label>
+       </div>
+       <div class="dt">
+           <input type="checkbox" id="read3" name="english_know" value="read">
+           <label>read</label>
+       </div>
+       <div class="dt">
+           <input type="checkbox" id="write3" name="english_know" value="write">
+           <label>write</label>
+       </div>
+       <div class="dt">
+           <input type="checkbox" id="speak3" name="english_know" value="speak">
+          <label>speak</label>
+       </div>
+       </div>
+   
+       
+       </div>
+      
+     
+       
+       
+      <div class="tb5">
+           
+               <h2>Technology Known</h2>
+                <div class="fl">
+                   <div class="dt">
+                       <input type="checkbox" id="php" name="technology" value="php">
+                       <label>php</label>
+                   </div>
+                   <div class="dt">
+                       <input type="radio" id="php-beginner" name="php_level" value="beginner">
+                       <label>beginner</label>
+                   </div>
+                   <div class="dt">
+                       <input type="radio" id="php-mediator" name="php_level" value="mediator">
+                       <label>Mediator</label>
+                   </div>
+                   <div class="dt">
+                       <input type="radio" id="php-expert" name="php_level" value="expert">
+                      <label>Expert</label>
+                   </div>
+               </div>
+       <br>
+       <div class="fl">
+       <div class="dt">
+           <input type="checkbox" id="oracle" name="technology" value="oracle">
+           <label>oracle</label>
+       </div>
+       <div class="dt">
+           <input type="radio" id="oracle-beginner" name="oracle_level" value="beginner">
+           <label>beginner</label>
+       </div>
+       <div class="dt">
+           <input type="radio" id="oracle-mediator" name="oracle_level" value="mediator">
+           <label>Mediator</label>
+       </div>
+       <div class="dt">
+           <input type="radio" id="oracle-expert" name="oracle_level" value="expert">
+          <label>Expert</label>
+       </div>
+       </div>
+       <br>
+       <div class="fl">
+       <div class="dt">
+           <input type="checkbox" id="mysql" name="technology" value="mysql">
+           <label>mysql</label>
+       </div>
+       <div class="dt">
+           <input type="radio" id="mysql-beginner" name="mysql_level" value="beginner">
+           <label>beginner</label>
+       </div>
+       <div class="dt">
+           <input type="radio" id="mysql-mediator" name="mysql_level"value="mediator">
+           <label>Mediator</label>
+       </div>
+       <div class="dt">
+           <input type="radio" id="mysql-expert" name="mysql_level" value="expert">
+          <label>Expert</label>
+       </div>
+       </div>
+       <br>
+       <div class="fl">
+       <div class="dt">
+          <input type="checkbox" id="laravel" name="technology" value="laravel">
+          <label>laravel</label>
+       </div>
+       <div class="dt">
+          <input type="radio" id="laravel-beginner" name="laravel_level" value="beginner">
+          <label>beginner</label>
+       </div>
+       <div class="dt">
+          <input type="radio" id="laravel-mediator" name="laravel_level" value="mediator">
+          <label>Mediator</label>
+       </div>
+       <div class="dt">
+          <input type="radio" id="laravel-expert" name="laravel_level" value="expert">
+         <label>Expert</label>
+       </div>
+       </div>
+       
+       </div>
+       
+       
+       </div>
+       
+    
+    </div>
+     <div id="ref&pref" class="form-section">
+       <div class="tb11">
+         <div class="tb6">
+           
+            <center id="th"><b><i>Reference</i></b></center>
+             <div>
+              <div class="dt">
+                <label>Name</label>
+                <input type="text" id="refname" name="refname">
+                <span class="error-message" id="refnameError"></span>
+              </div>
+              <div clas="dt">
+                <label>Contact Number</label>
+                <input type="text" id="refcontact" name="refcontact">
+                <span class="error-message" id="refcontactError"></span>
+              </div>
+              <div class="dt">
+                <label>Relation</label>
+                 <input type="text" id="refrel" name="refrel">
+                 <span class="error-message" id="refrelError"></span>
+              </div>
+              </div>
+             
+        
+            
+          </div>
+          <div class="tb7">
+   
+                <center id="th"><b><i>Preference</i></b></center>
+                <div>
+                    <div class="dt">
+                        <label for="prefered location">Prefered location</label>
+                        <select name="prefloc" id="pref_location">
+                        <option value="ahmedabad">ahmedabad</option>
+                        <option value="rajkot">rajkot</option>
+                        <option value="vadodara">vadodara</option>
+                        <option value="jamnagar">jamnagar</option>
+                        <option value="surat">Surat</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="dt">
+                            <label>Notice Period</label>
+                            <input type="text" id="np" name="np">
+                        </div>
+                        <div class="dt">
+                            <label>Department</label>
+                            <select name="department" id="department">
+                                <option value="cse">cse</option>
+                                <option value="mech">mech</option>
+                                <option value="ec">ec</option>
+                                <option value="electrical">electrical</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <div class="dt">
+                            <label>expected_ctc</label>
+                            <input type="text" id="exp_ctc" name="exp_ctc">
+                        </div>
+                        <div class="dt">
+                            <label>current_ctc</label>
+                            <input type="text" id="current_ctc" name="current_ctc">
+                        </div>
+                    </div>
+                </div>
+           
+          </div>
+        </div>
+        <!-- <input type="text" id="empId" name="custId"> -->
+  
+        <input type="button" id="submit" value="Submit" onclick="submitForm()" />
+       <!-- <input type="button" value="update" onclick="updateForm()"/> -->
+       <!-- <button type="button" id="updateBtn" style="display: none;" onclick="updateForm()">Update</button> -->
+       <!-- <input type="button" value="check" onclick="checkCu()"> -->
+       </div>
+       </div>
+       </form>
+     </div>
+     </body>
+     </html>

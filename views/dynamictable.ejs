@@ -1,0 +1,114 @@
+
+<html>
+    <head>
+        <title>
+            dynamic table
+        </title>
+        <style>
+         td{
+            height: 30px;
+            width: 30px;
+            border: 3px solid;
+         }
+         tr:nth-child(even) {background-color: orange;}
+         #hd{
+            display: flex;
+            position: absolute;
+            gap: 8px;
+            left: 1004px;
+         }
+         #hd1{
+            display: flex;
+            position: absolute;
+            gap: 8px;
+            left: 1004px;
+         }
+        </style>
+    </head>
+    <body>
+        <br>
+        <center>
+        <h1>Dynamic table</h1>
+        <h2>Gulshan Pandey</h2>
+        <h3>24DEV015</h3>
+        <br>
+        </center>
+        <center>
+            <div id="hd">
+            <div><button onclick="addColumn()">+</button> </div>
+           <div> <button onclick="deleteColumn()">-</button></div>
+            </div>
+           
+           <br>
+           <br>
+        <table id="dytb1">
+            <tr>
+                <td id="one"></td>
+                <td id="one"></td>
+            </tr>
+            <tr>
+                <td id="one"></td>
+                <td id="two"></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+     </center>
+       
+       <center>
+       <div id="hd1">
+        <div>
+            <button onclick="addRow()" >+</button>
+        
+        </div>
+       <div>
+        <button onclick="deleteRow()">-</button>
+       </div>
+    </div>
+    <br>
+    <br>
+    <br>
+       
+       </center>
+      
+       
+        <script>
+            function addRow() {
+                var table=document.getElementById("dytb1");
+                var newRow= table.insertRow();
+                var numCells=table.rows[0].cells.length;
+                console.log(numCells)
+                for(var i=0;i<numCells;i++){
+                    var cell=newRow.insertCell(i);
+                    cell.innerHTML="";
+                }
+            }
+            function deleteRow() {
+                var table=document.getElementById("dytb1");
+                if(table.rows.length>1){
+                    table.deleteRow(table.rows.length-1);
+                }
+                else{
+                    alert("cannot delete the row");
+                }
+            }
+            function addColumn() {
+                var table=document.getElementById("dytb1");
+                for(var i=0;i<table.rows.length;i++){
+                    var cell=table.rows[i].insertCell(-1);
+                    cell.innerHTML="";
+                }
+            }
+            function deleteColumn() {
+                var table=document.getElementById("dytb1");
+                var cid=1;
+                for(var i=0;i<table.rows.length;i++){
+                    var row=table.rows[i];
+                    if(row.cells.length >cid){
+                        row.deleteCell(cid);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

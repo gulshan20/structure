@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      th {
+        background-color: rgb(191, 211, 204);
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+        <div>
+          <h1>Pandey Gulshan</h1>
+          <h2>Report</h2>
+        </div>
+        <h3>Student ID:<%=result[key].studentid%></h3>
+        <h3>
+          Student Name:<%=result[key].firstname%> &nbsp;<%=result[key].lastname%>
+        </h3>
+      </center>
+    <center>
+      <table>
+        <tr>
+          <th rowspan="2">SubjectName</th>
+          <th colspan="2">Terminal</th>
+          <th colspan="2">Prelim</th>
+          <th colspan="2">Final</th>
+
+          <th rowspan="2">Total_MARKS</th>
+        </tr>
+        <tr>
+          <th colspan="1">Theory_marks</th>
+          <th colspan="1">Practical_marks</th>
+          <th colspan="1">Theory_marks</th>
+          <th colspan="1">Practical_marks</th>
+          <th colspan="1">Theory_marks</th>
+          <th colspan="1">Practical_marks</th>
+        </tr>
+        <%final=0%>
+        <% for(let i=0;i<result.length;i+=3){%>
+            <tr>
+                <% total = 0 %>
+                
+                
+                <td><%=result[i].subjectname%></td>
+               
+                <% for(let j=i;j<3+i;j++){%>
+                    <td><%=result[j].theory_mark%></td>
+                    <td><%=result[j].practical_mark%></td>
+                    <% total=total+result[j].theory_mark+result[j].practical_mark%>
+                    
+                    <%}%>
+    
+                   
+                <td><%=total%></td>
+                <%final=final+total%>
+
+              
+            </tr>
+            
+        <%}%> 
+        
+            <td colspan="8">Percentage:- <%=((final*100)/1200).toFixed(2)%> %</td>
+        
+      </table>
+    </center>
+
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>Tic tac toe</title>
+        <style>
+            td{
+               height: 200px;
+               width:200px;
+               border: 3px solid black;
+               background-color:orange;;
+               
+            }
+        </style>
+    </head>
+    <body>
+        
+        <center>
+        <h1>Tic Tac Toe game</h1>
+        <h2>Gulshan Pandey</h2>
+        <h3>24DEV015</h3>
+        <br>
+        <br>
+        </center>
+        <center>
+        <table id="final">
+            <tr>
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+            <tr>
+                <td id="4"></td>
+                <td id="5"></td>
+                <td id="6"></td>
+            </tr>
+            <tr>
+                <td id="7"></td>
+                <td id="8"></td>
+                <td id="9"></td>
+            </tr>
+        </table>
+        <div id="res" style=" font-size: large;height: 40px;width: 100px;align-items: center;"></div>
+        </ceneter>
+    
+        <script>
+             let toggle = 0;
+            let count=0;
+            let visited = [];
+            count1=0;
+            
+        
+
+    
+         document.getElementById("1").setAttribute("onclick","fun2(this)");
+         document.getElementById("2").setAttribute("onclick","fun2(this)");
+         document.getElementById("3").setAttribute("onclick","fun2(this)");
+         document.getElementById("4").setAttribute("onclick","fun2(this)");
+         document.getElementById("5").setAttribute("onclick","fun2(this)");
+         document.getElementById("6").setAttribute("onclick","fun2(this)");
+         document.getElementById("7").setAttribute("onclick","fun2(this)");
+         document.getElementById("8").setAttribute("onclick","fun2(this)");
+         document.getElementById("9").setAttribute("onclick","fun2(this)");
+
+
+         function fun2(element){
+          
+            if((toggle==0) && (visited.includes(element.id) == false)){
+             
+            element.setAttribute("style","font-size:100px;text-align:center");
+            element.innerHTML = "0"
+            toggle=1;
+            
+            
+            visited.push(element.id)
+          //  console.log(v)
+            
+            }
+            else if(toggle==1 && (visited.includes(element.id) == false)){
+            element.setAttribute("style","font-size:100px;text-align:center");
+            element.innerHTML = "X"
+            visited.push(element.id);
+            toggle=0;
+           
+            
+            }
+            count+=1;
+            count1++;
+            
+            
+
+            if((document.getElementById("1").innerHTML=="0" && document.getElementById("2").innerHTML=="0" && document.getElementById("3").innerHTML=="0") || 
+           (document.getElementById("1").innerHTML=="0" && document.getElementById("4").innerHTML=="0" && document.getElementById("7").innerHTML=="0") || 
+           (document.getElementById("2").innerHTML=="0" && document.getElementById("5").innerHTML=="0" && document.getElementById("8").innerHTML=="0") ||
+            (document.getElementById("7").innerHTML=="0" && document.getElementById("8").innerHTML=="0" && document.getElementById("9").innerHTML=="0") || 
+           (document.getElementById("3").innerHTML=="0" && document.getElementById("6").innerHTML=="0" && document.getElementById("9").innerHTML=="0") ||
+            (document.getElementById("1").innerHTML=="0" && document.getElementById("5").innerHTML=="0" && document.getElementById("9").innerHTML=="0") || 
+            (document.getElementById("3").innerHTML=="0" && document.getElementById("5").innerHTML=="0"&& document.getElementById("7").innerHTML=="0") ||
+            (document.getElementById("4").innerHTML=="0" && document.getElementById("5").innerHTML=="0" && document.getElementById("6").innerHTML=="0")){
+              document.getElementById("res").innerHTML="player 1 has won";
+              document.getElementById("final").style.pointerEvents="none";
+             
+            }
+            
+        
+
+            
+
+           
+            else if((document.getElementById("1").innerHTML=="X" && document.getElementById("2").innerHTML=="X" && document.getElementById("3").innerHTML=="X") ||
+             (document.getElementById("1").innerHTML=="X" && document.getElementById("4").innerHTML=="X" && document.getElementById("7").innerHTML=="X") || 
+             (document.getElementById("2").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("8").innerHTML=="X")
+           || (document.getElementById("7").innerHTML=="X" && document.getElementById("8").innerHTML=="X" && document.getElementById("9").innerHTML=="X") ||
+            (document.getElementById("3").innerHTML=="X" && document.getElementById("6").innerHTML=="X" && document.getElementById("9").innerHTML=="X") ||
+             (document.getElementById("1").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("9").innerHTML=="X") ||
+              (document.getElementById("3").innerHTML=="X" && document.getElementById("5").innerHTML=="X"&& document.getElementById("7").innerHTML=="X") ||
+            (document.getElementById("4").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("6").innerHTML=="X")){
+              document.getElementById("res").innerHTML="player 2 has won";
+              document.getElementById("final").style.pointerEvents="none";
+              count1++
+            
+        }
+        
+        else if(count1==9){
+        document.getElementById("res").innerHTML="the match has been draw";
+        }
+        
+        
+    }
+        
+        
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,295 @@
+<html>
+
+<head>
+    <title>
+        <h1>Event Demonstration</h1>
+    </title>
+    <!-- <link rel="stylesheet" href="event.css"> -->
+    <style>
+        .g1 {
+            display: flex;
+            gap: 5px;
+
+        }
+
+        .one {
+            background-color: azure;
+            border: 3px solid orange;
+            height: 220px;
+            width: 220px;
+        }
+
+        .two {
+            background-color: rgba(179, 206, 212, 0.952);
+            border: 3px solid orange;
+            height: 220px;
+            width: 220px;
+
+        }
+
+        #one1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="g1">
+        <div class="one" id1="one1">
+
+            <h1 style="text-align: center;">click event</h1>
+            <p style="text-align: center;" onclick="this.innerHTML = 'Ooops!'">Click on this text!</p>
+
+        </div>
+
+
+        <div class="two" id="two2">
+            <h1 style="text-align: center;">on input event</h1>
+            Enter your name: <input type="text" id="fname" oninput="upperCase()">
+            <p>When you write in the input field, a function is triggered to transform the input to upper case.</p>
+
+            <script>
+                function upperCase() {
+                    const x = document.getElementById("fname");
+                    x.value = x.value.toUpperCase();
+                }
+            </script>
+        </div>
+
+
+        <div class="one">
+            <h1 style="text-align: center;">onchange event</h1>
+            Enter your name: <input type="text" id="fname" onchange="upperCase()">
+            <p>When you leave the input field, a function transforms the input to upper case.</p>
+
+            <script>
+                function upperCase() {
+                    const x = document.getElementById("fname");
+                    x.value = x.value.toUpperCase();
+                }
+            </script>
+        </div>
+
+
+        <div class="two">
+            <h1 style="text-align: center;">onmouseover and mouseout event</h1>
+            <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+                style="width:120px;height:20px;padding:20px;margin-left: 25px;">
+                Mouse Over Me</div>
+
+
+
+            <script>
+                function mOver(obj) {
+                    obj.innerHTML = "Thank You"
+                }
+
+                function mOut(obj) {
+                    obj.innerHTML = "Mouse Over Me"
+                }
+            </script>
+        </div>
+
+
+        <div class="one">
+            <h1 style="text-align: center;">onmousedown and mouseup event</h1>
+            <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+                style="background-color:#ebb4e8;width:90px;height:20px;padding:20px;margin: 5px;margin-left:30px;">
+                Click Me</div>
+            <script>
+                function mDown(obj) {
+                    obj.style.backgroundColor = "orange";
+                    obj.innerHTML = "Release Me";
+                }
+
+                function mUp(obj) {
+                    obj.style.backgroundColor = "green";
+                    obj.innerHTML = "Thank You";
+                }
+            </script>
+
+        </div>
+
+
+        <div class="two">
+            <h1 style="text-align: center;">onfocus and onblur event</h1>
+            <div style="font-size:10px;">
+                Enter your name:
+                <input type="text" size="7" onfocus="highlightyellow(this)" onblur="regular(this)"><br>
+                Enter your email:
+                <input type="text" size="6" onfocus="highlightyellow(this)" onblur="regular(this)"><br>
+                Enter your phone number:
+                <input type="text" size="6" onfocus="highlightyellow(this)" onblur="regular(this)">
+                <script>
+                    function highlightyellow(x) {
+                        x.style.background = "yellow";
+                    }
+
+                    function regular(x) {
+                        x.style.background = "white";
+                    }
+                </script>
+            </div>
+        </div>
+
+
+        <div class="one">
+            <h1 style="text-align: center;">after print event</h1>
+            <h3> For printing
+                press (ctrl+p)
+            </h3>
+            <script>
+                window.addEventListener("afterprint", myFunction);
+
+                function myFunction() {
+                    alert("This document is now being printed");
+                }
+            </script>
+
+        </div>
+
+
+        <div class="two">
+            <h1 style="text-align: center;">onblur event</h1>
+            <div>
+                enter the details:
+                <input type="text" id="fname1">
+            </div>
+            <script>
+                document.getElementById("fname1").addEventListener("blur", myFunction1)
+
+                function myFunction1() {
+                    alert("Input field lost focus.");
+                }
+            </script>
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <div class="g1">
+        <div class="one">
+            <h1 style="text-align: center ;font-size: 30px;"> doubleclickevent</h1>
+
+            <div>
+
+                <p ondblclick="myFunction3()">dblclick</p>
+                <p id="demo3"></p>
+                <script>
+                    function myFunction3() {
+                        document.getElementById("demo3").innerHTML += "hello developers";
+
+                    }
+                </script>
+            </div>
+
+        </div>
+
+        <div class="two">
+            <h1 style="text-align: center ;font-size: 30px;"> oninvalid event</h1>
+            <form>
+                Department: <input type="text" oninvalid="alert('Plz fill the details!');" name="fname" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div class="one">
+            <h1 style="text-align: center ;font-size: 30px;"> onmouse down</h1>
+            <p1 id="i1" onmousedown="mouseDown()">Hello every one </p1>
+            <script>
+                function mouseDown() {
+                    document.getElementById("i1").style.color = "red";
+                }
+            </script>
+        </div>
+
+
+        <div class="two">
+            <h1 style="text-align: center ;font-size: 30px;"> onmouse up</h1>
+            <p1 id="i2" onmouseup="mouseUp()">Hello every one </p1>
+            <script>
+                function mouseUp() {
+                    document.getElementById("i2").style.color = "orange";
+                }
+            </script>
+        </div>
+
+
+        <div class="one">
+            <h1 style="text-align: center ;font-size: 30px;"> ontoggle event</h1>
+
+
+            <details ontoggle="myFunction()">
+                <summary>Copyright 2002</summary>
+
+                <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+            </details>
+
+            <script>
+                function myFunction() {
+                    alert("The ontoggle event occured");
+                }
+            </script>
+
+        </div>
+
+        <div class="two">
+            <h1 style="text-align: center ;font-size: 30px;"> onmouse over</h1>
+            <button id="Btn">Try it</button>
+
+            <p id="i22"></p>
+
+            <script>
+                var x = document.getElementById("Btn");
+                x.addEventListener("mouseover", myFunction);
+                function myFunction() {
+                    document.getElementById("i22").innerHTML += "hello!<br>";
+                }
+
+            </script>
+        </div>
+
+
+        <div class="one">
+            <h1 style="text-align: center ;font-size: 30px;"> onmouse out event</h1>
+            <button id="Btn1">Try it</button>
+
+            <p id="i23"></p>
+
+            <script>
+                var y = document.getElementById("Btn1");
+                y.addEventListener("mouseout", myFunction1);
+                function myFunction1() {
+                    document.getElementById("i23").innerHTML += "hello!<br>";
+                }
+
+            </script>
+
+        </div>
+
+
+        <div class="two">
+            <h1 style="text-align: center ;font-size: 30px;"> onmousemove event</h1>
+            <p id="demo11"></p>
+
+            <div id="rndm" style="height: 60px; width: 90px;background-color: red;">
+
+                <script>
+                    document.getElementById("rndm").addEventListener("mousemove", myFunction345);
+
+                    function myFunction345() {
+                        document.getElementById("demo11").innerHTML = Math.random();
+                    }
+
+
+                </script>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

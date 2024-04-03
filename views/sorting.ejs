@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>
+            sorting algo
+        </title>
+</head>
+    <body>
+        <center>
+            <h1>Array sorting</h1>
+            <h2>Gulshan Pandey</h2>
+            <h3>24DEV015</h3>
+            <br>
+        <div>
+            Enter:<input type="text" id="in">
+            <button id="btn">Sort</button>
+        </div>
+        <p id="demo"></p>
+        </center>
+       
+        
+        <script>
+        
+
+
+            document.getElementById("btn").addEventListener("click",() =>
+            {  
+                let m=document.getElementById("in").value;
+            var myArray=m.split("");
+            //document.getElementById("demo").innerHTML=myArray;
+           // document.getElementById("demo").innerHTML=typeof(myArray);
+         for(var i=0;i<myArray.length;i++){
+                for(var j=0;j<myArray.length-1;j++){
+                    if(myArray[j]>myArray[j+1]){
+                        let temp=myArray[j];
+                        myArray[j]=myArray[j+1];
+                        myArray[j+1]=temp;
+                       
+                    }
+                }
+
+            }
+           document.getElementById("demo").innerHTML="Sorted array is:-"+myArray;
+          
+        });
+        
+        
+
+
+       
+
+
+        </script>
+    </body>
+</html>
