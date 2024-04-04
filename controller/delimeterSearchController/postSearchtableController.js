@@ -45,11 +45,12 @@ module.exports=(req,res)=>{
     q1=`select * from student_master where `;
     
     if(fname.length>=1){
+        q1+='('
         for(let i=0;i<fname.length;i++){
             q1 +=` firstname like '%${fname[i]}%' or `
         }
 
-       q1= q1.slice(0,q1.length-3) + 'and';
+       q1= q1.slice(0,q1.length-3) + ') and';
     }
     // console.log(fname);
     // console.log(q1);

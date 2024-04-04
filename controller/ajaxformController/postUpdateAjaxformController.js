@@ -3,7 +3,7 @@ var connection=require("../../db")
 module.exports=async(req,res)=>{
     empid=req.params.id;
     // console.log(empid)
-     console.log(req.body);
+     console.log("fjfj",req.body);
 
     const fname1 = req.body.fname;
     const lname = req.body.lname;
@@ -81,9 +81,10 @@ module.exports=async(req,res)=>{
             for (let i = 0; i < formData.language.length; i++) {
                 const language = formData.language[i];
                 const q4= `
-                    update language_known SET language_name = '${language}',language_level = '${formData[language + '_know']}'where
+                    update language_known SET language_name = '${language}',language_level = '${formData[language + '_know']}' where
                         emp_id = '${empid}'
                         and language_name = '${language}'`;
+                        console.log("ef",q4)  
 
                 // Execute the update query for each language known detail
               let q5=  await query(q4);
