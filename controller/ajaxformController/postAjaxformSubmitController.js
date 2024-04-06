@@ -1,7 +1,5 @@
-
-
-var connection = require("../../db")
-module.exports = (req, res) => {
+var connection = require("../../db");
+module.exports = async (req, res) => {
   var q = req.body;
   console.log(q);
   const fname = req.body.fname;
@@ -20,29 +18,34 @@ module.exports = (req, res) => {
   const contact = req.body.refcontact;
   const relation = req.body.refrel;
 
-
   const prefloc = req.body.prefloc;
   const np = req.body.np;
   const department = req.body.department;
   const exp_ctc = req.body.exp_ctc;
-  const current_ctc = req.body.current_ctc
+  const current_ctc = req.body.current_ctc;
   //  const lang_arr=req.body.language;
   language = req.body.language;
   gujarati_know = req.body.gujarati_know;
   english_know = req.body.english_know;
   hindi_know = req.body.hindi_know;
-  language_know = []
-  language_know.push(hindi_know);
-  language_know.push(gujarati_know);
-  language_know.push(english_know);
+  language_know = [];
+  if (hindi_know) {
+    language_know.push(hindi_know);
+  }
+  if (gujarati_know) {
+    language_know.push(gujarati_know);
+  }
+  if (english_know) {
+    language_know.push(english_know);
+  }
+
   console.log(language, language_know);
   php_level = req.body.php_level;
   oracle_level = req.body.oracle_level;
   mysq_level = req.body.mysql_level;
   laravel_level = req.body.laravel_level;
 
-  console.log(req.body)
-
+  console.log(req.body);
 
   technology = req.body.technology;
   technology_level = [];
@@ -51,77 +54,114 @@ module.exports = (req, res) => {
 
   //  console.log(req.)
 
-
   const query = `INSERT INTO basic_details(f_name, l_name,desig,add1,email,pin,phone,city,gender,state,rel_status,dob) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
-  connection.query(query, [
-    fname,
-    lname,
-    desig,
-    add,
-    email,
-    pin,
-    phone,
-    city,
-    gender,
-    state,
-    rel_status,
-    dob,
-  ], (err, result) => {
-    if (err) throw err;
-    for (let i = 0; i < 4; i++) {
-      var q2 = `insert into education(emp_id,board,passing_year,percentage) values(?,?,?,?)`;
-      // var q2 = `insert into education(emp_id,board,passing_year,percentage) values('${result.insertId}','${req.body.board[i]}','${req.body.passingyear[i]}','${req.body.per[i]}')`;
-      if (req.body.board[i]) {
-        connection.query(q2,[result.insertId,req.body.board[i],req.body.passingyear[i],req.body.per[i]], (err, result) => {
-          console.log(result);
-        })
-      }
-
-
-    }
-    for (let i = 0; i < 3; i++) {
-      var q3 = `insert into workexp(emp_id,company,designation,from_date,to_date) values(?,?,?,?,?)`;
-      // var q3 = `insert into workexp(emp_id,company,designation,from_date,to_date) values('${result.insertId}','${req.body.comp[i]}','${req.body.designation[i]}','${req.body.frm_date[i]}','${req.body.to[i]}')`;
-      if (req.body.comp[i]) {
-        connection.query(q3,[result.insertId,req.body.comp[i],req.body.designation[i],req.body.frm_date[i],req.body.to[i]], (err, result) => {
-          if (err) throw err;
-          console.log(result)
-        })
-      }
-    }
-    for (let i = 0; i < language.length; i++) {
-      // var q4 = `insert into language_known(emp_id,language_name,language_level) values(?,?,?)`;
-      var q4 = `insert into language_known(emp_id,language_name,language_level) values('${result.insertId}','${language[i]}','${language_know[i]}')`;
-      if (language[i]) {
-        connection.query(q4, (err, result) => {
-          if (err) throw err;
-          console.log(result);
-        })
-      }
-    }
-    for (let i = 0; i < technology.length; i++) {
-      var q5 = `insert into technology_known(emp_id,technology,technology_level) values('${result.insertId}','${technology[i]}','${technology_level[i]}')`;
-      if (technology[i]) {
-        connection.query(q5, (err, result) => {
-          if (err) throw err;
-          console.log(result);
-
-        })
-      }
-    }
-    var q6 = `insert into reference(emp_id,refname,contact,relation) values('${result.insertId}','${refname}','${contact}','${relation}')`;
-    connection.query(q6, (err, result) => {
+  connection.query(
+    query,
+    [
+      fname,
+      lname,
+      desig,
+      add,
+      email,
+      pin,
+      phone,
+      city,
+      gender,
+      state,
+      rel_status,
+      dob,
+    ],
+    (err, result) => {
       if (err) throw err;
+      for (let i = 0; i < 4; i++) {
+        var q2 = `insert into education(emp_id,board,passing_year,percentage) values(?,?,?,?)`;
+        // var q2 = `insert into education(emp_id,board,passing_year,percentage) values('${result.insertId}','${req.body.board[i]}','${req.body.passingyear[i]}','${req.body.per[i]}')`;
+        if (req.body.board[i]) {
+          connection.query(
+            q2,
+            [
+              result.insertId,
+              req.body.board[i],
+              req.body.passingyear[i],
+              req.body.per[i],
+            ],
+            (err, result) => {
+              console.log(result);
+            }
+          );
+        }
+      }
+      for (let i = 0; i < 3; i++) {
+        var q3 = `insert into workexp(emp_id,company,designation,from_date,to_date) values(?,?,?,?,?)`;
+        // var q3 = `insert into workexp(emp_id,company,designation,from_date,to_date) values('${result.insertId}','${req.body.comp[i]}','${req.body.designation[i]}','${req.body.frm_date[i]}','${req.body.to[i]}')`;
+        if (req.body.comp[i]) {
+          connection.query(
+            q3,
+            [
+              result.insertId,
+              req.body.comp[i],
+              req.body.designation[i],
+              req.body.frm_date[i],
+              req.body.to[i],
+            ],
+            (err, result) => {
+              if (err) throw err;
+              console.log(result);
+            }
+          );
+        }
+      }
+      
 
-    })
+      for (let i = 0; i < language.length; i++) {
+        if (language[i]) {
+          var len = `${language_know[i]}`;
+          const q4 = `INSERT INTO language_known (emp_id, language_name, language_level) VALUES (?, ?, ?)`;
+          const values = [result.insertId, language[i], len];
 
-    var q7 = `insert into preference(emp_id,prefloc,noticeperiod,department,exp_ctc,current_ctc) values('${result.insertId}','${prefloc}','${np}','${department}','${exp_ctc}','${current_ctc}')`;
-    connection.query(q7, (err, result) => {
-      if (err) throw err;
+          connection.query(q4, values, (err, result) => {
+            if (err) throw err;
+            console.log(result);
+          });
+        }
+      }
 
-    })
+      for (let i = 0; i < technology.length; i++) {
+        if (technology[i]) {
+          const q5 = `INSERT INTO technology_known (emp_id, technology, technology_level) VALUES (?, ?, ?)`;
+          const values = [result.insertId, technology[i], technology_level[i]];
 
+          connection.query(q5, values, (err, result) => {
+            if (err) throw err;
+            console.log(result);
+          });
+        }
+      }
 
-  });
-  res.status(200).send('data inserted succesfully');
-}
+     
+
+      const q6 = `INSERT INTO reference (emp_id, refname, contact, relation) VALUES (?, ?, ?, ?)`;
+      const values = [result.insertId, refname, contact, relation];
+
+      connection.query(q6, values, (err, result) => {
+        if (err) throw err;
+      });
+
+     
+      const q7 = `INSERT INTO preference (emp_id, prefloc, noticeperiod, department, exp_ctc, current_ctc) VALUES (?, ?, ?, ?, ?, ?)`;
+      const value1 = [
+        result.insertId,
+        prefloc,
+        np,
+        department,
+        exp_ctc,
+        current_ctc,
+      ];
+
+      connection.query(q7, value1, (err, result) => {
+        if (err) throw err;
+      });
+    }
+  );
+  res.status(200).send("data inserted succesfully");
+};
